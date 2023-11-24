@@ -1,1 +1,10 @@
 #!/usr/bin/env bash
+# Display "Best School" 10 times with an until loop.
+
+count=0
+
+until [ $count -eq 10 ]
+do
+  echo "Best School"
+  (( count++ ))
+done
