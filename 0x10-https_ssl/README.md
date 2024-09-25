@@ -1,32 +1,33 @@
-# 0x10. HTTPS SSL 
+# 0x10. HTTPS SSL
 
-<p align="center">
-  <img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/276/FlhGPEK.png"/>
-</p>
+The internet is not a secure place, but we can make it a little bit safer by using HTTPS SSL protocol. 
 
-## Resource
+In this repository, we'll cover everything you need to know about HTTPS SSL and how to implement it in your website to ensure secure transmission of data. 
 
-- [What is HTTPS?](https://www.instantssl.com/http-vs-https)
-- [What are the 2 main elements that SSL is providing](https://www.sslshopper.com/why-ssl-the-purpose-of-using-ssl-certificates.html)
-- [HAProxy SSL termination on Ubuntu16.04](https://devops.ionos.com/tutorials/install-and-configure-haproxy-load-balancer-on-ubuntu-1604/)
-- [SSL termination](https://en.wikipedia.org/wiki/TLS_termination_proxy)
-- [Bash function](https://tldp.org/LDP/abs/html/complexfunct.html)
-- [How to Secure HAProxy with Let's Encrypt on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04)
-- [HAProxy SSL Termination](https://www.haproxy.com/blog/haproxy-ssl-termination/)
+## TASKS ⚔️
 
-## Tasks
+1. [World Wide Web](./0-world_wide_web)
+2. [HAproxy SSL Termination](./1-haproxy_ssl_termination)
+3. [No Loophole in Your Website Traffic](./100-redirect_http_to_https)
 
-<details>
-<summary><a href="./0-world_wide_web">0. World wide web</a></summary><br>
-<a href='https://postimg.cc/w3QxtHzN' target='_blank'><img src='https://i.postimg.cc/Y2Jvsqyd/image.png' border='0' alt='image'/></a>
-</details>
+## World Wide Web
 
-<details>
-<summary><a href="./1-haproxy_ssl_termination">1. HAproxy SSL termination</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/jSy72SG2/image.png' border='0' alt='image'/></a>
-</details>
+First and foremost, it's important to understand what the World Wide Web is. The World Wide Web, or simply the web, is a system of interlinked documents accessed via the Internet. These documents are commonly written in HTML and JavaScript. 
 
-<details>
-<summary><a href="./100-redirect_http_to_https">2. No loophole in your website traffic</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/Njtg78N1/image.png' border='0' alt='image'/></a>
-</details>
+Historically, HTTP (Hypertext Transfer Protocol) was used to transfer data over the web, but HTTP is not secure. This is where HTTPS SSL comes in. 
+
+## HAproxy SSL Termination
+
+HAproxy SSL termination is a process that allows you to terminate SSL connections at the load balancer instead of passing them on to the backend servers. This can help improve performance and reduce the load on your backend servers. 
+
+To implement HAproxy SSL termination, you'll need to configure HAproxy to listen on port 443 instead of 80 (the default HTTP port). You'll also need to configure SSL certificates for your domain. 
+
+## No Loophole in Your Website Traffic
+
+With HTTPS SSL, you can ensure that there are no loopholes in your website traffic. This means that all data transmitted between the client and server will be encrypted, making it difficult for anyone to intercept and read. 
+
+To implement HTTPS SSL, you'll need to obtain an SSL certificate for your domain. You can either purchase a certificate from a trusted Certificate Authority (CA), or you can generate a self-signed certificate for testing purposes. 
+
+Overall, implementing HTTPS SSL is a critical step in ensuring the security and confidentiality of your website's data. With the information and resources provided in this repository, you'll be well-equipped to implement HTTPS SSL in your website. 
+
+Feel free to explore the tasks in this repository to learn more about implementing HTTPS SSL.

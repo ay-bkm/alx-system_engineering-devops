@@ -1,120 +1,88 @@
-# 0x04. Loops, conditions and parsing 
+# 0x04-loops_conditions_and_parsing
 
-## Resource
+Welcome to the 0x04-loops_conditions_and_parsing repository! This repository contains programming exercises designed to teach you how to use loops, conditions, and parsing in a programming language of your choice.
 
-- [Loops sample](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_01.html)
-- [Variable assignment and arithmetic](https://tldp.org/LDP/abs/html/ops.html)
-- [Comparison operators](https://tldp.org/LDP/abs/html/comparison-ops.html)
-- [File test operators](https://tldp.org/LDP/abs/html/fto.html)
-- [Make your scripts portable](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html)
+## What is Loops_Conditions_and_Parsing?
 
-## Tasks
+Loops, conditions, and parsing are important constructs in programming languages. With these constructs, a programmer can control the flow of execution of the code, test conditions, and manipulate data. 
 
-<details>
-<summary><a href="./0-RSA_public_key.pub">0. Create a SSH RSA key pair</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/HkVtBRMg/image.png' border='0' alt='image'/></a><br>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://askubuntu.com/questions/61557/how-do-i-set-up-ssh-authentication-keys">Linux and Mac OS users</a></li>
-      <li><a href="https://docs.rackspace.com/support/how-to/generating-rsa-keys-with-ssh-puttygen/">Windows users</a></li>
-      <li><a href="https://www.youtube.com/watch?v=iuqXFC_qIvA&t=46s">data centers</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+Loops are used to iterate a set of instructions or statements. This allows us to repeat a set of instructions until a given condition has been met. 
 
-<details>
-<summary><a href="./1-for_best_school">1. For Best School loop</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/XYvX60Nr/image.png' border='0' alt='image'/></a>
-</details>
+Conditions allow us to control the execution flow of a program. We can use if/else statements to make decisions based on input from a user or a given condition. 
 
-<details>
-<summary><a href="./2-while_best_school">2. While Best School loop</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/KcfDJy01/image.png' border='0' alt='image'/></a>
-</details>
+Parsing is the process of taking a given data set, breaking it down into its component parts, and then translating it into a more usable format. Parsing allows us to manipulate and store data for later use. 
 
-<details>
-<summary><a href="./3-until_best_school">3. Until Best School loop</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/y8jvVtx4/image.png' border='0' alt='image'/></a>
-</details>
+## Exercises
 
-<details>
-<summary><a href="./4-if_9_say_hi">4. If 9, say Hi!</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/vBCCykBL/image.png' border='0' alt='image'/></a>
-</details>
+The 0x04-loops_conditions_and_parsing repository contains the following exercises:
 
-<details>
-<summary><a href="./5-4_bad_luck_8_is_your_chance">5. 4 bad luck, 8 is your chance</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/SxMkcYGF/image.png' border='0' alt='image'/></a><br>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://freakonomics.com/2006/07/05/lucky-8s-in-china/">8 in the Chinese culture</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Chinese_numerology#Four">4 in the Chinese culture</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+0. Create a shell script that prints the last 10 lines of the `/etc/passwd` file
 
-<details>
-<summary><a href="./6-superstitious_numbers">6. Superstitious numbers</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/XvHdRPT0/image.png' border='0' alt='image'/></a>
-</details>
+1. Rewrite the following command into an equivalent while loop
 
-<details>
-<summary><a href="./7-clock">7. Clock</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/YqRc5vMR/image.png' border='0' alt='image'/></a>
-</details>
+2. Write a shell script that displays numbers from 1 to 20
 
-<details>
-<summary><a href="./8-for_ls">8. For ls</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/wjzrjgTv/image.png' border='0' alt='image'/></a>
-</details>
+3. Write a shell script that displays the multiples of 6 between 0 and 98
 
-<details>
-<summary><a href="./9-to_file_or_not_to_file">9. To file, or not to file</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/RFwsBY5f/image.png' border='0' alt='image'/></a>
-</details>
+4. Write a shell script that gives you information about the holbertonchool file
 
-<details>
-<summary><a href="./10-fizzbuzz">10. FizzBuzz</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/85bsJLq3/image.png' border='0' alt='image'/></a>
-</details>
+5. Write a shell script that displays the content of the html page
 
-<details>
-<summary><a href="./100-read_and_cut">11. Read and cut</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/FHQyLVqF/image.png' border='0' alt='image'/></a>
-</details>
+6. Use the while loop to display the contents of the $PATH environment variable
 
-<details>
-<summary><a href="./101-tell_the_story_of_passwd">12. Tell the story of passwd</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/g0vNZG3x/image.png' border='0' alt='image'/></a>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/">Understanding /etc/passwd</a></li>
-      <li><a href="https://tldp.org/LDP/abs/html/internalvariables.html">IFS (internal field separator)</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+7. Write a shell script that displays all letters except q and e
 
-<details>
-<summary><a href="./102-lets_parse_apache_logs">13. Let's parse Apache logs</a></summary><br>
-<a href='https://postimg.cc/rDm2Zg6H' target='_blank'><img src='https://i.postimg.cc/P5bfxFSd/image.png' border='0' alt='image'/></a>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://en.wikipedia.org/wiki/Apache_HTTP_Server">Apache HTTP Server</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status codes</a></li>
-      <li><a href="https://www.the-art-of-web.com/system/logs/">System: Analyzing Apache log Files</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+8. Write a shell script that displays a range of numbers
 
-<details>
-<summary><a href="./103-dig_the-data">14. Dig the data</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/T2WBc5gs/image.png' border='0' alt='image'/></a>
-</details>
+9. Write a shell script that displays numbers from 1 to 20, separated by commas 
+
+10. Write a shell script that displays all prime numbers between 2 and 20
+
+## Files
+
+The 0x04-loops_conditions_and_parsing repository contains the following files:
+
+- README.md 
+- 0-last_lines # shell script
+- 1-conditionals # shell script
+- 2-while_n # shell script
+- 3-until_n # shell script
+- 4-find_holbertonschool  # shell script
+- 5-parse_web_page # shell script
+- 6-while_environment # shell script
+- 7-letter_only # shell script
+- 8-ww # shell script
+- 9-fizzbuzz # shell script
+- 10-prime_factor # shell script
+
+## Getting Started
+
+To get started with 0x04-loops_conditions_and_parsing, clone this repository to your local machine:
+
+```
+$ git clone https://github.com/brainstorma/0x04-loops_conditions_and_parsing.git
+```
+
+## Prerequisites
+
+To work with 0x04-loops_conditions_and_parsing, you need to have a basic understanding of loops, conditions, and parsing. You should also have a compiler installed on your machine.
+
+## Compiling
+
+To compile the programs, you should use the following command:
+
+```
+$ gcc -Wall -Werror -Wextra -pedantic <filename.c> -o <output filename>
+```
+
+## Usage
+
+To run the programs, you should use the following command:
+
+```
+$ ./<output filename> 
+```
+
+## Author
+
+0x04-loops_conditions_and_parsing was written by Brainstorma.

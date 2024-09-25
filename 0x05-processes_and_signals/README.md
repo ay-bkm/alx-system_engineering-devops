@@ -1,92 +1,54 @@
-# 0x05. Processes and signals 
+# 0x05. Processes and Signals
 
-## Resource
+This repo contains all the tasks that are related to processes and signals. It covers the concepts related to process scheduling, process management, system resources, and process control.
 
-- [Linux PID](http://www.linfo.org/pid.html)
-- [Linux process](https://www.thegeekstuff.com/2012/03/linux-processes-environment/)
-- [Linux signal](https://www.thegeekstuff.com/2012/03/linux-signals-fundamentals/)
+## Table of Contents
 
-## Tasks
+- [What is a Process?](#what-is-a-process)
+- [Process Creation and Termination](#process-creation-and-termination)
+- [Scheduling and Dispatching](#scheduling-and-dispatching)
+- [Signals](#signals)
+- [Resource Management](#resource-management)
+- [Repo Tasks](#repo-tasks)
 
-<details>
-<summary><a href="./0-what-is-my-pid">0. What is my PID</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/NFCmFGcj/image.png' border='0' alt='image'/></a>
-</details>
+## What is a Process?
 
-<details>
-<summary><a href="./1-list_your_processes">1. List your processes</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/zXW2M4SR/image.png' border='0' alt='image'/></a>
-</details>
+A process is the basic unit of execution in an operating system. It represents a program in execution and can be thought of as the active part of a program. It is the instance of a computer program that is being executed by one or many threads. A process is created by the operating system when a program is executed.
 
-<details>
-<summary><a href="./2-show_your_bash_pid">2. Show your Bash PID</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/T3pRbrz9/image.png' border='0' alt='image'/></a>
-</details>
+## Process Creation and Termination
 
-<details>
-<summary><a href="./3-show_your_bash_pid_made_easy">3. Show your Bash PID made easy</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/4NCc3xjn/image.png' border='0' alt='image'/></a>
-</details>
+Process creation occurs when a program is executed by the operating system. The operating system creates an address space for the process, assigns resources to the process, and schedules the process for execution. The process is then loaded into memory and execution begins. 
 
-<details>
-<summary><a href="./4-to_infinity_and_beyond">4. To infinity and beyond</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/59rp1zBz/image.png' border='0' alt='image'/></a>
-</details>
+Process termination occurs when the process completes its execution or is terminated by the operating system. When a process terminates, it returns all allocated resources to the operating system and releases its address space.
 
-<details>
-<summary><a href="./5-dont_stop_me_now">5. Don't stop me now!</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/CMWh8vCx/image.png' border='0' alt='image'/></a>
-</details>
+## Scheduling and Dispatching
 
-<details>
-<summary><a href="./6-stop_me_if_you_can">6. Stop me if you can</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/2SLpdvYF/image.png' border='0' alt='image'/></a>
-</details>
+Process scheduling is the task of the operating system to determine which process to execute at a given time. The scheduling algorithm determines how access to the CPU is managed among competing processes. Scheduling algorithms can be preemptive or non-preemptive, and scheduling decisions are based on priorities and resource availability. 
 
-<details>
-<summary><a href="./7-highlander">7. Highlander</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/1z5yGXW9/image.png' border='0' alt='image'/></a>
-</details>
+Process dispatching is the process of executing a process by the operating system. The dispatching decision is made by the scheduler and the process is transferred from the ready queue to the CPU. The process is then executed until a process switch is requested by the operating system.
 
-<details>
-<summary><a href="./8-beheaded_process">8. Beheaded process</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/W4Xg8DTS/image.png' border='0' alt='image'/></a>
-</details>
+## Signals
 
-<details>
-<summary><a href="./beheaded_process">9. Beheaded process</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/W4Xg8DTS/image.png' border='0' alt='image'/></a>
-</details>
+Signals are used by the operating system to notify processes of events. Signals can be sent to processes by the operating system, by another process, or even by the user. 
 
-<details>
-<summary><a href="./100-process_and_pid_file">10. Process and PID file</a></summary><br>
-<a href='https://postimg.cc/VdHnF6Cd' target='_blank'><img src='https://i.postimg.cc/rwqjMRyC/image.png' border='0' alt='image'/></a>
-</details>
+When a signal is sent to a process, the process is notified of the signal and can take action based on the signal. The action can be to ignore the signal, to terminate the process, or to take some other action.
 
-<details>
-<summary><a href="./101-manage_my_process">11. Manage my process</a></summary><br>
-<a href='https://postimg.cc/2qPfd4z2' target='_blank'><img src='https://i.postimg.cc/gJ0kWD1F/image.png' border='0' alt='image'/></a>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://bashitout.com/2013/05/18/Ampersands-on-the-command-line.html">&</a></li>
-      <li><a href="https://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/">init.d</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Daemon_%28computing%29">Daemon</a></li>
-      <li><a href="https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html">Positional parameters</a></li>
-      <li><a href="./manage_my_process">manage_my_process</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+## Resource Management
 
-<details>
-<summary><a href="./102-zombie.c">12. Zombie</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/ry1qKz2Y/image.png' border='0' alt='image'/></a>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://zombieprocess.wordpress.com/what-is-a-zombie-process/">what a zombie process is</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+Resource management is the task of the operating system to manage the resources of a system. The operating system must manage the resources effectively and efficiently in order to meet the needs of the processes. The resources managed by the operating system include memory, files, I/O devices, processors, and other system resources.
+
+## Repo Tasks
+
+The following tasks are included in this repo:
+
+| Task | Description |
+|------|-------------|
+| 0-what-is-my-pid | Write a Bash script that displays its own PID. |
+| 1-list_your_processes | Write a Bash script that displays a list of currently running processes. |
+| 2-show_your_bash_pid | Using your previous exercise command, write a Bash script that displays lines containing the bash word, thus allowing you to easily get the PID of your Bash process. |
+| 3-show_your_bash_pid_made_easy | Write a Bash script that displays the PID, along with the process name, of processes whose name contain the word bash. |
+| 4-to_infinity_and_beyond | Write a Bash script that displays To infinity and beyond indefinitely. |
+| 5-kill_me_now | We killed our 4-to_infinity_and_beyond process using ctrl+c in the previous task, there is actually another way to do this.  Write a Bash script that kills 4-to_infinity_and_beyond process. |
+| 6-kill_me_now_made_easy | Write a Bash script that kills 4-to_infinity_and_beyond process. |
+| 7-highlander | Write a Bash script that displays:  _"To live, you must kill"_  when the  _4-to_infinity_and_beyond_  process is killed. |
+| 8-beheaded_process | Write a Bash script that kills the process 7-highlander. |

@@ -1,83 +1,22 @@
-# Attack is the best defense
+# Attack is the Best Defense
 
-## Resource
+In the world of cybersecurity, the phrase "attack is the best defense" holds true. By understanding the methods and techniques used by attackers, we can better protect ourselves and our systems from potential threats.
 
-- [Network sniffing](https://www.lifewire.com/definition-of-sniffer-817996)
-- [ARP spoofing](https://www.veracode.com/security/arp-spoofing)
-- [Connect to SendGrid’s SMTP relay using telnet](https://docs.sendgrid.com/ui/account-and-settings/troubleshooting-delays-and-latency)
-- [What is Docker and why is it popular?](https://www.zdnet.com/article/what-is-docker-and-why-is-it-so-darn-popular/)
-- [Dictionary attack](https://en.wikipedia.org/wiki/Dictionary_attack)
+This repository contains two tasks that delve into different attack methods: 0-sniffing and 1-dictionary_attack. Both tasks are designed to help you gain a deeper understanding of how attackers operate and how to defend against them.
 
-## Tasks
+## Task 0: Sniffing
+In task 0, we will be exploring the concept of packet sniffing. Packet sniffing is a technique used by attackers to intercept and read network traffic. By capturing packets as they travel over the network, attackers can extract sensitive information such as usernames, passwords, and credit card numbers.
 
-<details>
-<summary><a href="./0-sniffing">0. ARP spoofing and sniffing unencrypted traffic</a></summary><br>
+In this task, you will learn how to use Wireshark, a popular packet sniffing tool, to capture and analyze network traffic. You will also gain an understanding of different types of network protocols and how they can be exploited by attackers.
 
-<a href='https://postimg.cc/dZFTgZM5' target='_blank'><img src='https://i.postimg.cc/nrjYjq3f/image.png' border='0' alt='image'/></a>
+[Click here to go to Task 0.](./0-sniffing)
 
-```sh
-sylvain@ubuntu$ telnet smtp.sendgrid.net 587
-Trying 167.89.121.145...
-Connected to smtp.sendgrid.net.
-Escape character is '^]'.
-220 SG ESMTP service ready at ismtpd0013p1las1.sendgrid.net
-EHLO ismtpd0013p1las1.sendgrid.net
-250-smtp.sendgrid.net
-250-8BITMIME
-250-PIPELINING
-250-SIZE 31457280
-250-STARTTLS
-250-AUTH PLAIN LOGIN
-250 AUTH=PLAIN LOGIN
-auth login           
-334 VXNlcm5hbWU6
-VGhpcyBpcyBteSBsb2dpbg==
-334 UGFzc3dvcmQ6
-WW91IHJlYWxseSB0aG91Z2h0IEkgd291bGQgbGV0IG15IHBhc3N3b3JkIGhlcmU/ISA6RA==
-235 Authentication successful
-mail from: sylvain@kalache.fr
-250 Sender address accepted
-rcpt to: julien@google.com
-250 Recipient address accepted
-data
-354 Continue
-To: Julien
-From: Sylvain
-Subject: Hello from the insecure world
+## Task 1: Dictionary Attack
+In task 1, we will be exploring the concept of a dictionary attack. A dictionary attack is a type of brute force attack where an attacker uses a list of known words or phrases (a "dictionary") to guess a password.
 
-I am sending you this email from a Terminal.
-.
-250 Ok: queued as Aq1zhMM3QYeEprixUiFYNg
-quit
-221 See you later
-Connection closed by foreign host.
-sylvain@ubuntu$ 
-```
+In this task, you will learn how to write a simple dictionary attack script using Python. You will also gain an understanding of password security and how to create strong passwords that are resistant to dictionary attacks.
 
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/kG0NxDH6/image.png' border='0' alt='image'/></a>
+[Click here to go to Task 1.](./1-dictionary_attack)
 
-```sh
-# Run this when there is no other process running,
-# ...tried to find a way to specifically filter the specif process but
-# ...the best option was to run it in a virtual enviroment
-# ...also base64 should be your best friend
-sudo tcpdump -A -l
-```
-
-- [user\_authenticating\_into\_server](./user_authenticating_into_server) binary script file.
-
-</details>
-
-<details>
-<summary><a href="./1-dictionary_attack">1. Dictionary attack</a></summary><br>
-
-<a href="https://ibb.co/Ltr6sZh"><img src="https://i.ibb.co/7WQV01N/image.png" alt="image" border="0"></a>
-
-- [Wordlist](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) **Rockyou.txt**
-
-```sh
-# command
-hydra -V -s 2222 -l sylvain -P rockyou.txt 127.0.0.1 ssh -t 64
-```
-
-</details>
+## Conclusion
+By completing these tasks, you will gain a deeper understanding of both offensive and defensive strategies in the world of cybersecurity. Remember, attack is the best defense – but only if you know how to defend against the attacks!

@@ -1,44 +1,44 @@
-# 0x0A. Configuration management
+# 0x0A Configuration Management
 
-## Resource
+## Overview
 
-- [Intro to Configuration Management](https://www.digitalocean.com/community/tutorials/an-introduction-to-configuration-management)
-- [Puppet resource type: file](https://puppet.com/docs/puppet/5.5/types/file.html) (*Check "Resource types" for all manifest types in the left menu*)
-- [Puppet’s Declarative Language: Modeling Instead of Scripting](https://puppet.com/blog/puppets-declarative-language-modeling-instead-of-scripting/)
-- [Puppet lint](http://puppet-lint.com/)
-- [Puppet emacs mode](https://github.com/voxpupuli/puppet-mode)
-- [Puppet CookBook](https://www.puppetcookbook.com/)
-
-## Installing `puppet` and `puppet-lint`
-
-```sh
-# installing puppet and puppet-lint
-wget https://apt.puppet.com/puppet7-release-focal.deb && \
-    dpkg -i puppet7-release-focal.deb && \
-    apt-get update && \
-    apt-get install puppet-agent puppet-lint -y
-
-# confirming installation
-puppet -V
-puppet-lint -v
-
-# If you get an error saying puppet command not found, source the path
-source /etc/profile.d/puppet-agent.sh
-```
+This repository contains three tasks related to configuration management with Puppet. Each task involves writing Puppet code that configures a specific component of a server.
 
 ## Tasks
 
-<details>
-<summary><a href="./0-create_a_file.pp">0. Create a file</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/NM2k46hX/image.png' border='0' alt='image'/></a>
-</details>
+The tasks include:
 
-<details>
-<summary><a href="./1-install_a_package.pp">1. Install a package</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/PqVvKj7c/image.png' border='0' alt='image'/></a>
-</details>
+1. [Install Puppet](./0-create_a_file.pp): write a Puppet manifest that creates a file in the `/tmp` directory.
+2. [Execute a command](./1-install_a_package.pp): write a Puppet manifest that installs the `puppet-lint` package.
+3. [Create a manifest](./2-execute_a_command.pp): write a Puppet manifest that creates a new user, installs the `nginx` package and starts the `nginx` service.
 
-<details>
-<summary><a href="./2-execute_a_command.pp">2. Execute a command</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/CxZFC13P/image.png' border='0' alt='image'/></a>
-</details>
+Each task is contained in a separate directory, and includes a README file with specific instructions on how to execute the Puppet code.
+
+## Requirements
+
+To run the Puppet code in this repository, you will need to have Puppet installed on your system. The code has been tested with Puppet version 6.24.0.
+
+## Usage
+
+To execute the Puppet code for any of the tasks, navigate to the appropriate directory and run the command:
+
+```
+sudo puppet apply <FILENAME>.pp
+```
+
+Where `<FILENAME>` is the name of the Puppet manifest file for the task.
+
+For example, to execute the Puppet code for Task 1:
+
+1. Navigate to the `0-create_a_file` directory.
+2. Run the command:
+
+```
+sudo puppet apply 0-create_a_file.pp
+```
+
+This will create a file called `/tmp/ALX` on the server.
+
+## Conclusion
+
+The Puppet code in this repository demonstrates basic configuration management practices, including installing packages and executing commands, and can be used as a starting point for more complex configuration management tasks.

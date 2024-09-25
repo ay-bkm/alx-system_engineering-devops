@@ -1,49 +1,43 @@
-# 0x0B. SSH 
+# 0x0B-ssh
 
-## Resource
+The purpose of this project is to learn how to use SSH (Secure Shell) and how to connect to a remote server using SSH. SSH is a cryptographic network protocol that allows secure communication between two computers. It provides secure access to a remote computer over an unsecured network, like the internet.
 
-- [What is a (physical) server - text](https://en.wikipedia.org/wiki/Server_%28computing%29#Hardware_requirement)
-- [What is a (physical) server - video](https://www.youtube.com/watch?v=B1ANfsDyjeA)
-- [SSH essentials](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
-- [SSH Config File](https://www.ssh.com/academy/ssh/config)
-- [Public Key Authentication for SSH](https://www.ssh.com/academy/ssh/public-key-authentication)
-- [How Secure Shell Works](https://www.youtube.com/watch?v=ORcvSkgdA58)
-- [SSH Crash Course](https://www.youtube.com/watch?v=hQWRp-FdTpc) (*(Long, but highly informative. Watch this if configuring SSH is still confusing. It may be helpful to watch at x1.25 speed or above.*)
+## Background Context
 
-### For reference:
+In the world of web development, developers often work on remote servers that are hosted by a third-party company. These servers are managed by system administrators who give developers the necessary access rights to the servers. To gain access to a remote server, developers must use SSH, which secures the connection between the two computers and allows them to communicate securely.
 
-- [Understanding the SSH Encryption and Connection Process](https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process)
-- [Secure Shell Wiki](https://en.wikipedia.org/wiki/Secure_Shell)
-- [IETF RFC 4251 (Description of the SSH Protocol)](https://www.ietf.org/rfc/rfc4251.txt)
-- [Internet Engineering Task Force](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force)
-- [Request for Comments (RFCs)](https://en.wikipedia.org/wiki/Request_for_Comments)
+## Learning Objectives
 
-## Tasks
+At the end of this project, we should be able to answer the following questions:
 
-<details>
-<summary><a href="./0-use_a_private_key">0. Use a private key</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/yW4gBSpM/image.png' border='0' alt='image'/></a>
-</details>
+- What is a server?
+- Where server usually live?
+- What is SSH?
+- How to create an SSH RSA key pair?
+- How to connect to a remote host using an SSH RSA key pair?
+- The advantage of using SSH over other protocols?
 
-<details>
-<summary><a href="./1-create_ssh_key_pair">1. Create an SSH key pair</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/pXPbpdbx/image.png' border='0' alt='image'/></a>
-</details>
+## Repository Tasks
 
-<details>
-<summary><a href="./2-ssh_config">2. Client configuration file</a></summary><br>
-<a href='https://postimg.cc/Hjb2CMHK' target='_blank'><img src='https://i.postimg.cc/y6brchGV/image.png' border='0' alt='image'/></a>
-</details>
+The following tasks were completed as part of this project:
 
-<details>
-<summary>3. Let me in!</summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/3N2k9F3k/image.png' border='0' alt='image'/></a>
-</details>
+#### [0. Use a private key](./0-use_a_private_key)
+Learn how to connect to a server using SSH with a private key. We will be using [DigitalOcean](https://www.digitalocean.com/) to host the server.
 
-<details>
-<summary><a href="./100-puppet_ssh_config.pp">4. Client configuration file (w/ Puppet)</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/ryBvRXzV/image.png' border='0' alt='image'/></a><br>
-<ul><li>Install puppet stdlib module;</li></ul>
-<pre>sudo puppet module install puppetlabs-stdlib</pre>
-</details>
+#### [1. Create an SSH key pair](./1-create_ssh_key_pair)
+Create an SSH key pair using `ssh-keygen`. We will be using this key pair to connect to our server.
 
+#### [2. Client configuration file](./2-ssh_config)
+Create a client configuration file to simplify the SSH connection process.
+
+#### [3. Let me in!](./3-ssh_into_your_server)
+Connect to the server using the SSH key pair that we created in task 1.
+
+#### [4. Puppet manifests](./4-puppet_ssh_config.pp)
+Use Puppet to automate the creation of the SSH client configuration file that we created in task 2.
+
+## How to Use
+
+- Clone the repository to your local machine using `git clone`.
+- Navigate to the directory of the desired task.
+- Follow the instructions in the README.md file of the task folder.

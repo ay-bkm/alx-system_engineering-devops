@@ -1,51 +1,75 @@
-# 0x09. Web infrastructure design 
+# 0x09-Web Infrastructure Design
 
-## Resource
+This repository holds different methods and strategies for designing scalable web infrastructures. The objective is to provide different approaches to web infrastructures, aiming to make it easier for developers to build reliable and scalable web solutions.
 
-- [Web Infrastructure](https://youtu.be/lQNEW76KdYg)
-- [What is a database](https://searchdatamanagement.techtarget.com/definition/database)
-- [What’s the difference between a web server and an app server?](https://www.youtube.com/watch?v=S97eKyv2b9M)
-- [DNS record types](https://pressable.com/?s=DNS&post_type=knowledgebase)
-- [Single point of failure](https://en.wikipedia.org/wiki/Single_point_of_failure)
-- [How to avoid downtime when deploying new code](https://softwareengineering.stackexchange.com/questions/35063/how-do-you-update-your-production-codebase-database-schema-without-causing-downt#answers-header)
-- [High availability cluster (active-active/active-passive)](https://docs.oracle.com/cd/E17904_01/core.1111/e10106/intro.htm#ASHIA712)
-- [What is HTTPS](https://www.instantssl.com/http-vs-https)
-- [What is a firewall](https://www.webopedia.com/definitions/firewall/)
-- [Load Balancing Algorithms and Techniques](https://kemptechnologies.com/load-balancer/load-balancing-algorithms-techniques/)
-- [Active/Passive vs. Active/Active](https://kemptechnologies.com/fr/white-papers/unfog-confusion-active-passive-activeactive-load-balancing/)
+## Table of Contents
 
-## Tasks
+* [General Objectives](#general-objectives)
+* [Requirements](#requirements)
+* [Usage](#usage)
+* [Authors](#authors)
 
-<details>
-<summary><a href="./0-simple_web_stack.jpg">0. Simple web stack</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/jdk2SN17/image.png' border='0' alt='image'/></a>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29">LAMP stack</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+## General Objectives
 
-<details>
-<summary><a href="./1-distributed_web_infrastructure.jpg">1. Distributed web infrastructure</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/MTwSdKn5/image.png' border='0' alt='image'/></a>
-</details>
+The main objective of this repository is to provide a comprehensive guide to designing scalable and reliable web infrastructures. The content of this repository aims to give a clear understanding of the concepts and principles that are essential to building robust web infrastructures.
 
-<details>
-<summary><a href="./2-secured_and_monitored_web_infrastructure.jpg">2. Secured and monitored web infrastructure</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/KYsZdtCJ/image.png' border='0' alt='image'/></a>
-</details>
+## Requirements
 
-<details>
-<summary><a href="./3-scale_up.jpg">3. Scale up</a></summary><br>
-<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/13ndnc2x/image.png' border='0' alt='image'/></a>
-<ul>
-  <li>Links from screenshot
-  <ul>
-      <li><a href="https://www.nginx.com/resources/glossary/application-server-vs-web-server/">Application server vs web server</a></li>
-  </ul>
-  </li>
-</ul>
-</details>
+To run any of the files or scripts in this repository, you will need:
+
+* A Unix-like operating system (macOS, Ubuntu, Debian, etc.)
+* A shell terminal emulator
+* Docker installed and running
+* A basic understanding of networking, web servers, and databases
+
+## Usage
+
+This repository contains multiple directories, each with their own README.md file that provides an overview of the topics covered in the directory. Below you will find a list of each directory and a brief description of its content.
+
+### [0-simple_web_stack](./0-simple_web_stack)
+
+This directory contains an overview and basic architecture of a simple web stack. The web stack consists of a single server running a web application that serves static content. The directory also includes:
+
+* A visual representation of the web stack architecture
+* A list of tools and technologies used in the architecture
+* Instructions for setting up the web stack using Docker
+
+### [1-distributed_web_infrastructure](./1-distributed_web_infrastructure)
+
+This directory covers the architecture of a distributed web infrastructure. The architecture consists of multiple servers that are load-balanced and can handle increased traffic. The directory also includes:
+
+* A visual representation of the distributed web infrastructure architecture
+* A list of tools and technologies used in the architecture
+* Instructions for setting up the infrastructure using Docker
+
+### [2-secured_and_monitored_web_infrastructure](./2-secured_and_monitored_web_infrastructure)
+
+This directory covers the architecture of a secured and monitored web infrastructure. The architecture includes multiple servers, load balancers, firewalls, and monitoring tools. The directory also includes:
+
+* A visual representation of the secured and monitored web infrastructure architecture
+* A list of tools and technologies used in the architecture
+* Instructions for setting up the infrastructure using Docker
+
+### [3-scale_up](./3-scale_up)
+
+This directory covers the different strategies and technologies that can be used to scale up a web infrastructure. The directory includes:
+
+* A list of scaling strategies
+* A brief overview of each scaling strategy
+* An explanation of when and how to use each scaling strategy
+
+## Authors
+
+This repository was created by the ALX students:
+
+* Brainstorma [@brainstorma](https://github.com/brainstorma)
+* Richard Ayeh [@Rayeh1](https://github.com/Rayeh1)
+
+# Extra Resources
+
+* [High Scalability](http://highscalability.com/)
+* [AWS Architecture Center](https://aws.amazon.com/architecture/)
+* [Google Cloud Platform Architecture Center](https://cloud.google.com/solutions/architecture)
+* [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+* [Nginx documentation](https://docs.nginx.com/)
+* [Docker documentation](https://docs.docker.com/)
