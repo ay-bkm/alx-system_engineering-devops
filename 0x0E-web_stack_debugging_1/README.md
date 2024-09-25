@@ -1,42 +1,67 @@
-# 0x0E-web_stack_debugging_1
+# 0x0E. Web stack debugging #1
+<img src="Web Debugging_1.jpg" />
 
-As a software engineer, it is important to be able to troubleshoot and debug issues, especially when it comes to web applications. In this project, we will delve into the world of web stack debugging, specifically for Nginx servers.
+# Requirements
+## General
+-  Allowed editors: vi, vim, emacs
+-  All your files will be interpreted on Ubuntu 20.04 LTS
+-  All your files should end with a new line
+-  A README.md file at the root of the folder of the project is mandatory
+-  All your Bash script files must be executable
+-  Your Bash scripts must pass Shellcheck without any error
+-  Your Bash scripts must run without error
+-  The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
+-  The second line of all your Bash scripts should be a comment explaining what is the script doing
+-  You are not allowed to use wget
 
-## Tasks
+# Tasks
+## 0. Nginx likes port 80
+mandatory <br>
+Using your debugging skills, find out what’s keeping your Ubuntu container’s Nginx installation from listening on port 80. Feel free to install whatever tool you need, start and destroy as many containers as you need to debug the issue. Then, write a Bash script with the minimum number of commands to automate your fix.
 
-### [0-nginx_likes_port_80](./0-nginx_likes_port_80/)
-For the first task of this project, we have been given a server with Nginx installed, but the server is not serving the expected content on port 80. We need to figure out what the issue is and fix it, so that the server properly serves the expected content on port 80.
+### Requirements:
+-  Nginx must be running, and listening on port 80 of all the server’s active IPv4 IPs
+-  Write a Bash script that configures a server to the above requirements
 
-### [1-debugging_made_short](./1-debugging_made_short/)
-For the second task of this project, we have been given a broken script that needs to be fixed. The script is supposed to start Nginx, but it is failing due to an unknown issue. We need to figure out what the issue is and fix it, so that the script properly starts Nginx.
+### Config Commands
+Step 1:
+-  curl 0:80
+-  ./0-nginx_likes_port_80 > /dev/null 2&>1
 
-## Getting Started
-To get started with this project, you'll need to have a basic understanding of web servers, Nginx, Linux commands and some experience with debugging skills. 
-This repository contains the following directories and files:
+Step 2:
+-  curl 0:80
 
-### [0-nginx_likes_port_80](./0-nginx_likes_port_80/)
-This directory contains a Bash script that checks that Nginx is listening on port 80 of your server.
+Repo:
 
-### [1-debugging_made_short](./1-debugging_made_short/)
-This directory contains a Bash script that performs the same task as the script in the previous directory, but with fewer lines of code.
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x0E-web_stack_debugging_1
+    File: 0-nginx_likes_port_80
 
-## Environment
-This project is interpreted and run on Ubuntu 14.04 LTS. 
 
-## Installation Guide
-To get started, please follow the instructions below:
-1. Clone the repository to your local machine:
-```
-git clone https://github.com/brainstorma/alx-system_engineering-devops
-```
-2. Navigate to the project directory:
-```
-cd alx-system_engineering-devops/0x0E-web_stack_debugging_1/
-```
-3. Navigate to the task directory e.g:
-```
-cd 0-nginx_likes_port_80/
-```
-4. Read and follow the instructions located in each task's README to complete the tasks.
+## 1. Make it sweet and short
+#advanced <br>
+Using what you did for task #0, make your fix short and sweet.
 
-Hope you enjoy the project!
+### Requirements:
+-  Your Bash script must be 5 lines long or less
+-  There must be a new line at the end of the file
+-  You must respect usual Bash script requirements
+-  You cannot use ;
+-  You cannot use &&
+-  You cannot use wget
+-  You cannot execute your previous answer file (Do not include the name of the previous script in this one)
+-  service (init) must say that nginx is not running ← for real
+
+### Config Commands
+-  curl 0:80
+-  cat -e 1-debugging_made_short | wc -l
+-  ./1-debugging_made_short
+-  curl 0:80
+-  service nginx status
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x0E-web_stack_debugging_1
+    File: 1-debugging_made_short
+

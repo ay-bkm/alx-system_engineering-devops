@@ -1,33 +1,152 @@
-# 0x10. HTTPS SSL
+# 0x10 https ssl
 
-The internet is not a secure place, but we can make it a little bit safer by using HTTPS SSL protocol. 
+<img align="left" alt="C" style="padding-right;" src="https.png">
 
-In this repository, we'll cover everything you need to know about HTTPS SSL and how to implement it in your website to ensure secure transmission of data. 
+## General
+-    What is HTTPS SSL 2 main roles
+-    What is the purpose encrypting traffic
+-    What SSL termination means
+-    Allowed editors: vi, vim, emacs
+-    All your files will be interpreted on Ubuntu 16.04 LTS
+-    All your files should end with a new line
+-    A README.md file, at the root of the folder of the project, is mandatory
+-    All your Bash script files must be executable
+-    Your Bash script must pass Shellcheck (version 0.3.7) without any error
+-    The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
+-    The second line of all your Bash scripts should be a comment explaining what is the script doing
 
-## TASKS ⚔️
+# Tasks
+## 0. World wide web
+mandatory
 
-1. [World Wide Web](./0-world_wide_web)
-2. [HAproxy SSL Termination](./1-haproxy_ssl_termination)
-3. [No Loophole in Your Website Traffic](./100-redirect_http_to_https)
+Configure your domain zone so that the subdomain www points to your load-balancer IP (lb-01). Let’s also add other subdomains to make our life easier, and write a Bash script that will display information about subdomains.
 
-## World Wide Web
+Requirements:
+-    Add the subdomain www to your domain, point it to your lb-01 IP (your domain name might be configured with default subdomains, feel free to remove them)
+-    Add the subdomain lb-01 to your domain, point it to your lb-01 IP
+-    Add the subdomain web-01 to your domain, point it to your web-01 IP
+-    Add the subdomain web-02 to your domain, point it to your web-02 IP
 
-First and foremost, it's important to understand what the World Wide Web is. The World Wide Web, or simply the web, is a system of interlinked documents accessed via the Internet. These documents are commonly written in HTML and JavaScript. 
+Your Bash script must accept 2 arguments:
+-    domain:
+        -    type: string
+        -    what: domain name to audit
+        -    mandatory: yes
+-    subdomain:
+        -    type: string
+        -    what: specific subdomain to audit
+        -    mandatory: no
+-    Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+-    When only the parameter domain is provided, display information for its subdomains www, lb-01, web-01 and web-02 - in this specific order
+-    When passing domain and subdomain parameters, display information for the specified subdomain
+-    Ignore shellcheck case SC2086
+-    Must use:
+        -    awk
+        -    at least one Bash function
+-    You do not need to handle edge cases such as:
+-    Empty parameters
+-    Nonexistent domain names
+-    Nonexistent subdomains
 
-Historically, HTTP (Hypertext Transfer Protocol) was used to transfer data over the web, but HTTP is not secure. This is where HTTPS SSL comes in. 
+### Tests
+-    dig www.example.com | grep -A1 'ANSWER SECTION:'
+-    dig lb-01.example.com | grep -A1 'ANSWER SECTION:'
+-    dig web-01.example.com | grep -A1 'ANSWER SECTION:'
+-    dig web-02.example.com | grep -A1 'ANSWER SECTION:'
+-    ./0-world_wide_web holberton.online
+-    ./0-world_wide_web holberton.online web-02
 
-## HAproxy SSL Termination
+Repo:
 
-HAproxy SSL termination is a process that allows you to terminate SSL connections at the load balancer instead of passing them on to the backend servers. This can help improve performance and reduce the load on your backend servers. 
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x10-https_ssl
+    File: 0-world_wide_web
+    
 
-To implement HAproxy SSL termination, you'll need to configure HAproxy to listen on port 443 instead of 80 (the default HTTP port). You'll also need to configure SSL certificates for your domain. 
+## 1. HAproxy SSL termination
+mandatory
 
-## No Loophole in Your Website Traffic
+“Terminating SSL on HAproxy” means that HAproxy is configured to handle encrypted traffic, unencrypt it and pass it on to its destination.
 
-With HTTPS SSL, you can ensure that there are no loopholes in your website traffic. This means that all data transmitted between the client and server will be encrypted, making it difficult for anyone to intercept and read. 
+Create a certificate using certbot and configure HAproxy to accept encrypted traffic for your subdomain www..
 
-To implement HTTPS SSL, you'll need to obtain an SSL certificate for your domain. You can either purchase a certificate from a trusted Certificate Authority (CA), or you can generate a self-signed certificate for testing purposes. 
+Requirements:
+-    HAproxy must be listening on port TCP 443
+-    HAproxy must be accepting SSL traffic
+-    HAproxy must serve encrypted traffic that will return the / of your web server
+-    When querying the root of your domain name, the page returned must contain Holberton School
+-    Share your HAproxy config as an answer file (/etc/haproxy/haproxy.cfg)
+-    The file 1-haproxy_ssl_termination must be your HAproxy configuration file
 
-Overall, implementing HTTPS SSL is a critical step in ensuring the security and confidentiality of your website's data. With the information and resources provided in this repository, you'll be well-equipped to implement HTTPS SSL in your website. 
+Make sure to install HAproxy 1.5 or higher, SSL termination is not available before v1.5.
 
-Feel free to explore the tasks in this repository to learn more about implementing HTTPS SSL.
+### Tests
+-    curl -sI https://www.example.com
+-    curl https://www.example.com
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x10-https_ssl
+    File: 1-haproxy_ssl_termination
+    
+
+## 2. No loophole in your website traffic
+#advanced
+
+A good habit is to enforce HTTPS traffic so that no unencrypted traffic is possible. Configure HAproxy to automatically redirect HTTP traffic to HTTPS.
+
+Requirements:
+-    This should be transparent to the user
+-    HAproxy should return a 301
+-    HAproxy should redirect HTTP traffic to HTTPS
+-    Share your HAproxy config as an answer file (/etc/haproxy/haproxy.cfg)
+-    The file 100-redirect_http_to_https must be your HAproxy configuration file
+
+### Tests
+-    curl -sIL http://www.example.com
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x10-https_ssl
+    File: 100-redirect_http_to_https
+
+
+<br></br>
+## Setting up your SSL:
+<br></br>
+<img align="left" alt="C" style="padding-right;" src="ssl.gif">
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+Note that you must know how to use these before you can start. Ensure that
+Nginx has been installed in your primary server, secondary server, as well
+as the load balancer (HAproxy) before you begin
+- sudo apt update
+- sudo apt install snapd
+- sudo apt-get remove certbot
+- sudo apt-get install certbot
+- sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d example.com
+- sudo ls /etc/letsencrypt/live/your_domain_name
+- sudo mkdir -p /etc/haproxy/certs
+- DOMAIN='example.com' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+- sudo chmod -R go-rwx /etc/haproxy/certs
+- sudo nano /etc/haproxy/haproxy.cfg or sudo vim /etc/haproxy/haproxy.cfg
+
+## Most common errors:
+If the HAproxy fails to start, check the HAproxy's configuration (/etc/haproxy/haproxy.cfg)
+-  before editing it, stop Nginx and HAproxy services
+    -  stop Nginx in all the servers
+    -  stop HAproxy in load balancer

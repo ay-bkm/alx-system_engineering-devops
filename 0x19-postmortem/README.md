@@ -1,29 +1,86 @@
-# 0x19. Postmortem - Practice Exercise
+# 0x19. Postmortem
+## Background Context
+<a href="https://youtu.be/rp5cVMNmbro" target="_blank">
+  <img src="https://img.youtube.com/vi/rp5cVMNmbro/maxresdefault.jpg" alt="Video Thumbnail">
+</a>
 
-This postmortem describes a fake issue and its resolution for the 0x17-web_stack_debugging project, created for practice purposes.
+Any software system will eventually fail, and that failure can come stem from a wide range of
+possible factors: bugs, traffic spikes, security issues, hardware failures, natural disasters,
+improve. Any great Software Engineer must learn from his/her mistakes to make sure that they
+won’t happen again. Failing is fine, but failing twice because of the same issue is not.
 
-## Issue Summary
-Between 00:00 and 00:37 (10-06-2023, 12:11 am - 12:48 am GMT-1), all servers began returning a 500 error on all requests due to a recent server configuration update. The issue was caused by a mistyped reference in the WordPress settings file. The website was inaccessible to all users during the update.
+A postmortem is a tool widely used in the tech industry. After any outage, the team(s) in
+charge of the system will write a summary that has 2 main goals:
+-  To provide the rest of the company’s employees easy access to information detailing the
+cause of the outage. Often outages can have a huge impact on a company, so managers and
+executives have to understand what happened and how it will impact their work.
+-  And to ensure that the root cause(s) of the outage has been discovered and that measures
+are taken to make sure it will be fixed.
 
-## Timeline
+<br></br>
 
-00:00 - A lead developer noticed the website was returning a 500 error.
+# Tasks
+## 0. My first postmortem
+Using one of the web stack debugging project issue or an outage you have personally face,
+write a postmortem. Most of you will never have faced an outage, so just get creative and
+invent your own :)
 
-00:02 - Developer opened Ticket 0x19 and the servers were reverted to the most recent working change until the error was resolved to minimize downtime.
+### Requirements:
+Issue Summary (that is often what executives will read) must contain:
+-  duration of the outage with start and end times (including timezone)
+-  what was the impact (what service was down/slow? What were user
+experiencing? How many % of the users were affected?)
+-  what was the root cause
 
-00:06 - A response to the ticket was received from junior developer Scout Curry.
+Timeline (format bullet point, format: time - keep it short, 1 or 2 sentences) must contain:
+-  when was the issue detected
+-  how was the issue detected (monitoring alert, an engineer noticed something, a customer
+complained…)
+-  actions taken (what parts of the system were investigated, what were the assumption on the
+root cause of the issue)
+-  misleading investigation/debugging paths that were taken
+-  which team/individuals was the incident escalated to
+-  how the incident was resolved
 
-00:10 - The `ps auxf` command showed that processes were running. Testing began by attaching `strace` to process IDs.
+Root cause and resolution must contain:
+-  explain in detail what was causing the issue
+-  explain in detail how the issue was fixed
 
-00:25 - Attaching `strace` to the apache2 process and sending a simple GET request to the server led to a -1 ENOENT error in one of the PHP files referenced by `phpp`.
+Corrective and preventative measures must contain:
+-  what are the things that can be improved/fixed (broadly speaking)
+-  a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx
+server, add monitoring on server memory…)
 
-00:27 - Using grep in the file location, the `phpp` error was traced to the `wp-settings.php` file due to a mistyped reference.
+Be brief and straight to the point, between 400 to 600 words</br>
+While postmortem format can vary, stick to this one so that you can get properly reviewed by
+your peers.</br>
+Please, remember that these blogs must be written in English to further your technical ability
+in a variety of settings.
 
-00:30 - A manual fix for the typo was made in the `wp-setting.php` file. After restarting Apache, the server returned a 200 code and displayed the correct website.
 
-00:35 - A Puppet script using `sed` was created to remove the typo on all remaining servers. The script was run using `puppet apply`.
+Repo:
 
-00:37 - All servers were updated with the new change.
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x19-postmortem
+    File: README.md
 
-## Corrective/Preventative measures
-To prevent similar issues in the future, it is recommended to implement unit testing or pre-testing of code before pushing it to production. Alternatively, commit small changes in a way that allows change history to be easily reviewed on GitHub. This can help identify issues and prevent widespread downtime.
+### Task 0 Blog Link
+    https://medium.com/@shongwe.bhekizwe/0x19-postmortem-a34ed5add2a9
+<br></br>
+
+## 1. Make people want to read your postmortem
+We are constantly stormed by a quantity of information, it’s tough to get people to read you.</br>
+Make your post-mortem attractive by adding humour, a pretty diagram or anything that would catch
+your audience attention.</br>
+Please, remember that these blogs must be written in English to further your technical ability in
+a variety of settings.
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x19-postmortem
+    File: README.md
+
+### Task 1 Blog Link
+    https://medium.com/@shongwe.bhekizwe/0x19-postmortem-the-great-server-fumble-fiasco-efbebd5380c9
+

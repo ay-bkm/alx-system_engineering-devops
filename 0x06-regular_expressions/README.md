@@ -1,77 +1,183 @@
-# 0x06. Regular Expressions
+# 0x06. Regular expression
+## Background Context
+For this project, you have to build your regular expression using Oniguruma, a regular expression library that which is used by Ruby by default. Note that other regular expression libraries sometimes have different properties.
 
-Regular expressions are powerful tools for manipulating text strings. They are a way of describing patterns in text and can be used to match, replace, and validate a variety of text inputs. Regular expressions enable developers to find text patterns within larger strings quickly and accurately and have many uses in software engineering and web development.
+Because the focus of this exercise is to play with regular expressions (regex), here is the Ruby code that you should use, just replace the regexp part, meaning the code in between the //
 
-## What are Regular Expressions?
+# Requirements
+## General
+-	Allowed editors: vi, vim, emacs
+-	All your files will be interpreted on Ubuntu 20.04 LTS
+-	All your files should end with a new line
+-	A README.md file, at the root of the folder of the project, is mandatory
+-	All your Bash script files must be executable
+-	The first line of all your Bash scripts should be exactly #!/usr/bin/env ruby
+-	All your regex must be built for the Oniguruma library
 
-Regular expressions are strings of characters that are used to describe patterns in text. A regular expression (or "regex" for short) is a search pattern that can be used to match one or more characters within a string. It can also be used to manipulate text to search, replace, and validate data. Regular expressions are commonly used in software engineering and web development for tasks such as searching for and replacing text, validating a format or type of input, and more.
+# Tasks
+## 0. Simply matching School
+mandatory
 
-Regular expressions enable developers to find patterns within strings quickly and accurately and are often used in conjunction with other programming languages and tools, including Python, JavaScript, and SQL.
+Requirements:
 
-## Syntax of Regular Expressions
+The regular expression must match School
+Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
-Regular expressions contain characters that define and describe patterns in text. These characters form a syntax (like grammar) that allows developers to search for text in a concise and precise way. The syntax of a regular expression can vary depending on the language and tool being used, but the basics are often the same.
+### Tests
+-	Test 1: <code>./0-simply_match_school.rb School | cat -e</code>
+-  Test 2: <code>./0-simply_match_school.rb "Best School" | cat -e</code>
+-  Test 3: <code>./0-simply_match_school.rb "School Best School" | cat -e</code>
+-   <code>./0-simply_match_school.rb "Grace Hopper" | cat -e</code>
 
-The most important characters used in regular expressions are the following:
+Repo:
 
-- `^`: This character marks the beginning of a string or line.
-- `$`: This character marks the end of a string or line.
-- `.`: This character denotes any single character.
-- `*`: This character denotes any number of characters.
-- `?`: This character denotes 0 or 1 occurrence of a character.
-- `[]`: This character set denotes any one character within a set of characters.
-- `()`: This character group denotes a specific group of characters.
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 0-simply_match_school.rb
+   
 
-Using these characters, developers can create regular expressions that can be used to search for text or validate a format or type of data.
+## 1. Repetition Token #0
+mandatory
 
-## Uses of Regular Expressions
+Requirements:
+-   Find the regular expression that will match the above cases
+-   Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
-Regular expressions can be used for many different tasks in software engineering and web development, including searching for and replacing text, validating a format or type of input, and more. 
+Repo:
 
-### Searching and Replacing
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 1-repetition_token_0.rb
+   
 
-Regular expressions can be used to search for text strings within large amounts of text. This can be used to quickly find and replace certain patterns within a text string. For example, a regular expression can be used to search for all instances of the word "cat" in a string of text and then replace them with the word "dog".
+## 2. Repetition Token #1
+mandatory
 
-Regular expressions can also be used to modify text strings. For example, a regular expression can be used to search for the characters "a" and "e" in a string of text and then replace them with the characters "f" and "g" respectively.
+Requirements:
+-   Find the regular expression that will match the above cases
+-   Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
-### Validating
+Repo:
 
-Regular expressions can be used to validate a format or type of data. Regular expressions can be used to match a text string to a pattern and determine if it is valid or not. Regular expressions can also be used to validate the format or type of data. For example, a regular expression can be used to determine if a text string is a valid email address or not.
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 2-repetition_token_1.rb
+   
 
-### Security
+## 3. Repetition Token #2
+mandatory
 
-Regular expressions can also be used for security purposes. Regular expressions can be used to search for and remove malicious code or text strings within a web page or application. Regular expressions can also be used to validate data being sent to a web page or application.
+Requirements:
+-   Find the regular expression that will match the above cases
+-   Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
-## Learning Regular Expressions
+Repo:
 
-Regular expressions can be difficult to understand and use, but there are many resources available to help developers learn and use regular expressions. 
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 3-repetition_token_2.rb
+   
 
-### Tutorials and Guides
+## 4. Repetition Token #3
+mandatory
 
-There are many tutorials and guides available that can help developers learn how to use regular expressions. These guides can explain the syntax of regular expressions, provide examples, and offer tips and tricks.
+Requirements:
+-   Find the regular expression that will match the above cases
+-   Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
+-   Your regex should not contain square brackets
 
-### Help and Community
+Repo:
 
-There are also many online communities and forums available that can provide assistance and support with regular expressions. These communities can be a great resource for help and advice when it comes to using regular expressions.
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 4-repetition_token_3.rb
+   
 
-### Practice
+## 5. Not quite HBTN yet
+mandatory
 
-Finally, practice is the best way to learn regular expressions. Developers can use online tools to practice writing and testing regular expressions, or they can create their own test strings and regex patterns.
+Requirements:
+-   The regular expression must be exactly matching a string that starts with h ends with n and can have any single character in between
+-   Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
-## Conclusion
+### Tests
+-   <code>./5-beginning_and_end.rb 'hn' | cat -e</code>
+-   <code>./5-beginning_and_end.rb 'hbn' | cat -e</code>
+-   <code>./5-beginning_and_end.rb 'hbtn' | cat -e</code>
+-   <code>./5-beginning_and_end.rb 'h8n' | cat -e</code>
 
-Regular expressions are powerful tools for manipulating text strings. They enable developers to find patterns and validate data quickly and accurately. Regular expressions have many uses in software engineering and web development, including searching for and replacing text, validating formats and types of data, and more. Regular expressions can be difficult to understand and use, but with the right resources and practice, developers can become proficient in using regular expressions.
+Repo:
 
-## Tasks
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 5-beginning_and_end.rb
+   
 
-0. Regular expression
-1. Repetition Token #0
-2. Repetition Token #1
-3. Repetition Token #2
-4. Repetition Token #3
-5. Not quite HBTN yet
-6. Call me maybe
-7. OMG WHY ARE YOU SHOUTING?
-8. Textme
-9. Passwords
-10. Honour Code
+## 6. Call me maybe
+mandatory
+
+This task is brought to you by a professional advisor Neha Jain, Senior Software Engineer at LinkedIn.
+
+Requirement:
+-   The regular expression must match a 10 digit phone number
+
+### Tests
+-   <code>./6-phone_number.rb 4155049898 | cat -e</code>
+-   <code>./6-phone_number.rb " 4155049898" | cat -e</code>
+-   <code>./6-phone_number.rb "415 504 9898" | cat -e</code>
+-   <code>./6-phone_number.rb "415-504-9898" | cat -e</code>
+
+Repo:
+
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 6-phone_number.rb
+   
+
+## 7. OMG WHY ARE YOU SHOUTING?
+mandatory
+
+Requirement:
+-   The regular expression must be only matching: capital letters
+
+### Tests
+-   <code>./7-OMG_WHY_ARE_YOU_SHOUTING.rb "I realLy hOpe VancouvEr posseSs Yummy Soft vAnilla Dupper Mint Ice Nutella cream" | cat -e</code>
+-   <code>./7-OMG_WHY_ARE_YOU_SHOUTING.rb "WHAT do you SAY?" | cat -e</code>
+-   <code>./7-OMG_WHY_ARE_YOU_SHOUTING.rb "cannot read you" | cat -e</code>
+
+Repo:
+
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 7-OMG_WHY_ARE_YOU_SHOUTING.rb
+   
+
+## 8. Textme
+#advanced
+
+This exercise was prepared for you by Guillaume Plessis, VP of Infrastructure at TextMe. It is something he uses daily. You can thank Guillaume for his project on Twitter.
+
+For this task, you’ll be taking over Guillaume’s responsibilities: one afternoon, a TextMe VoIP Engineer comes to you and explains she wants to run some statistics on the TextMe app text messages transactions.
+
+Requirements:
+-   Your script should output: [SENDER],[RECEIVER],[FLAGS]
+-   The sender phone number or name (including country code if present)
+-   The receiver phone number or name (including country code if present)
+-   The flags that were used
+
+### Tests
+
+-   <code>./100-textme.rb 'Feb 1 11:00:00 ip-10-0-0-11 mdr: 2016-02-01 11:00:00 Receive SMS [SMSC:SYBASE1] [SVC:] [ACT:] [BINF:] [FID:] [from:Google] [to:+16474951758] [flags:-1:0:-1:0:-1] [msg:127:This planet has - or rather had - a problem, which was this: most of the people on it were unhappy for pretty much of the time.] [udh:0:]'</code>
+
+-   <code>./100-textme.rb 'Feb 1 11:00:00 ip-10-0-64-10 mdr: 2016-02-01 11:00:00 Receive SMS [SMSC:SYBASE2] [SVC:] [ACT:] [BINF:] [FID:] [from:+17272713208] [to:+19172319348] [flags:-1:0:-1:0:-1] [msg:136:Orbiting this at a distance of roughly ninety-two million miles is an utterly insignificant little blue green planet whose ape-descended] [udh:0:]'</code>
+
+-   <code>./100-textme.rb 'Feb 1 11:00:00 ip-10-0-64-11 mdr: 2016-02-01 11:00:00 Sent SMS [SMSC:SYBASE1] [SVC:backendtextme] [ACT:] [BINF:] [FID:] [from:18572406905] [to:14022180266] [flags:-1:0:-1:-1:-1] [msg:136:Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.] [udh:0:]'</code>
+
+-   <code>./100-textme.rb 'Feb 1 11:00:00 ip-10-0-64-11 mdr: 2016-02-01 11:00:00 Sent SMS [SMSC:SYBASE1] [SVC:backendtextme] [ACT:] [BINF:] [FID:] [from:12392190384] [to:19148265919] [flags:-1:0:-1:-1:-1] [msg:99:life forms are so amazingly primitive that they still think digital watches are a pretty neat idea.] [udh:0:]'</code>
+
+Repo:
+
+      GitHub repository: alx-system_engineering-devops
+      Directory: 0x06-regular_expressions
+      File: 100-textme.rb
+

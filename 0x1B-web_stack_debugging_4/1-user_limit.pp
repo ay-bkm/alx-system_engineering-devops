@@ -1,4 +1,7 @@
-# Fix open files
-exec { 'Fix hard limit':
-  command => '/usr/bin/env sed -i "s/4/20000/; s/5/20000/" /etc/security/limits.conf'
+# Change OS configuration: allows holberton user login and
+# opens file without any error message.
+
+exec {'OS security config':
+  command => 'sed -i "s/holberton/foo/" /etc/security/limits.conf',
+  path    => '/usr/bin/env/:/bin/:/usr/bin/:/usr/sbin/'
 }

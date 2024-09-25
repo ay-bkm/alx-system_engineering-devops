@@ -1,25 +1,87 @@
-# 0x0F-load_balancer
+# 0x0F Load Balancer
+<img src="load-balancer.png" />
 
-This repository contains my solution to the Holberton School project `0x0F-load_balancer`. In this project, I had to set up a load balancer using HAProxy and configure it to balance HTTP requests between multiple web servers. Additionally, I also added a custom HTTP response header to the servers using Puppet.
+## Background Context
+You have been given 2 additional servers:
 
-## Custom HTTP Response Header
+gc-[STUDENT_ID]-web-02-XXXXXXXXXX <br>
+gc-[STUDENT_ID]-lb-01-XXXXXXXXXX <br>
+Let’s improve our web stack so that there is redundancy (https://en.wikipedia.org/wiki/Redundancy_%28engineering%29) for our web servers. This will allow us to be able to accept more traffic by doubling the number of web servers, and to make our infrastructure more reliable. If one web server fails, we will still have a second one to handle requests.
 
-The task `0-custom_http_response_header` involved adding a custom HTTP response header to the web servers. This was achieved by setting the `proxy_set_header` directive in the HAProxy configuration file to include the desired header.
+For this project, you will need to write Bash scripts to automate your work. All scripts must be designed to configure a brand new Ubuntu server to match the task requirements.
 
-For more details, please refer to the [README.md](./README.md) file in the `0-custom_http_response_header` directory.
+# Requirements
+## General
+-  Allowed editors: vi, vim, emacs
+-  All your files will be interpreted on Ubuntu 16.04 LTS
+-  All your files should end with a new line
+-  A README.md file, at the root of the folder of the project, is mandatory
+-  All your Bash script files must be executable
+-  Your Bash script must pass Shellcheck (version 0.3.7) without any error
+-  The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
+-  The second line of all your Bash scripts should be a comment explaining what is the script doing
 
-## Install Load Balancer
+# Tasks
+## 0. Double the number of webservers
+mandatory
 
-The task `1-install_load_balancer` required me to install and configure HAProxy on a dedicated server. This involved installing HAProxy from the package manager (`apt-get`) and setting the appropriate configuration options.
+In this first task you need to configure web-02 to be identical to web-01. Fortunately, you built a Bash script during your web server project, and they’ll now come in handy to easily configure web-02. Remember, always try to automate your work!
 
-For more details, please refer to the [Install Load Balancer](./1-install_load_balancer) file in the `1-install_load_balancer` directory.
+Since we’re placing our web servers behind a load balancer for this project, we want to add a custom Nginx response header. The goal here is to be able to track which web server is answering our HTTP requests, to understand and track the way a load balancer works. More in the coming tasks.
 
-## Puppet Custom HTTP Response Header
+Requirements:
+-  Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
+-  The name of the custom HTTP header must be X-Served-By
+-  The value of the custom HTTP header must be the hostname of the server Nginx is running on
+-  Write 0-custom_http_response_header so that it configures a brand new Ubuntu machine to the requirements asked in this task
+-  Ignore SC2154 (https://github.com/koalaman/shellcheck/wiki/Ignore) for shellcheck
 
-The task `2-puppet_custom_http_response_header.pp` involved automating the configuration of the custom HTTP response header using Puppet. This was achieved using a Puppet manifest file that defined the necessary resources and dependencies.
+If your server’s hostnames are not properly configured ([STUDENT_ID]-web-01 and [STUDENT_ID]-web-02.), follow this tutorial https://repost.aws/knowledge-center/linux-static-hostname).
 
-For more details, please refer to the [2-puppet_custom_http_response_header](./2-puppet_custom_http_response_header.pp) file in the `2-puppet_custom_http_response_header.pp` directory.
+Repo:
 
-## Conclusion
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x0F-load_balancer
+    File: 0-custom_http_response_header
+    
 
-I thoroughly enjoyed working on this project and learned a lot about load balancing and HAProxy. Feel free to browse through the code and documentation to get a better understanding of the implementation details.
+## 1. Install your load balancer
+mandatory
+
+Install and configure HAproxy on your lb-01 server.
+
+### Requirements:
+-  Configure HAproxy so that it send traffic to web-01 and web-02
+-  Distribute requests using a roundrobin algorithm
+-  Make sure that HAproxy can be managed via an init script
+-  Make sure that your servers are configured with the right hostnames: [STUDENT_ID]-web-01 and [STUDENT_ID]-web-02. If not, follow this tutorial.
+-  For your answer file, write a Bash script that configures a new Ubuntu machine to respect above requirements
+
+### Config Commands
+-  curl -Is <server IP> (run it twice to check for both servers)
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x0F-load_balancer
+    File: 1-install_load_balancer
+    
+
+## 2. Add a custom HTTP header with Puppet
+#advanced
+
+Just as in task #0, we’d like you to automate the task of creating a custom HTTP header response, but with Puppet.
+-  The name of the custom HTTP header must be X-Served-By
+-  The value of the custom HTTP header must be the hostname of the server Nginx is running on
+-  Write 2-puppet_custom_http_response_header.pp so that it configures a brand new Ubuntu machine to the requirements asked in this task
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x0F-load_balancer
+    File: 2-puppet_custom_http_response_header.pp
+
+
+
+The GIF below is the visualisation of what this project is all about - setting up the HAproxy (Load Balancer) so that it functions in the manner illustrated... and this should also emphasise the importance of a functioning HAproxy
+<img src="HAproxy-and-2-server-setup.gif" />

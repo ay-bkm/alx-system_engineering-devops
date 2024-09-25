@@ -1,54 +1,320 @@
-# 0x05. Processes and Signals
+# 0x05. Processes and signals
+## General
+What is a PID
+What is a process
+How to find a process’ PID
+How to kill a process
+What is a signal
+What are the 2 signals that cannot be ignored
+Allowed editors: vi, vim, emacs
+All your files will be interpreted on Ubuntu 20.04 LTS
+All your files should end with a new line
+A README.md file, at the root of the folder of the project, is mandatory
+All your Bash script files must be executable
+Your Bash script must pass Shellcheck (version 0.7.0 via apt-get) without any error
+The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
+The second line of all your Bash scripts should be a comment explaining what is the script doing
 
-This repo contains all the tasks that are related to processes and signals. It covers the concepts related to process scheduling, process management, system resources, and process control.
+# Tasks
+## 0. What is my PID
+mandatory
 
-## Table of Contents
+Write a Bash script that displays its own PID.
 
-- [What is a Process?](#what-is-a-process)
-- [Process Creation and Termination](#process-creation-and-termination)
-- [Scheduling and Dispatching](#scheduling-and-dispatching)
-- [Signals](#signals)
-- [Resource Management](#resource-management)
-- [Repo Tasks](#repo-tasks)
+### Tests
+-  <code>./0-what-is-my-pid</code>
 
-## What is a Process?
+Repo:
 
-A process is the basic unit of execution in an operating system. It represents a program in execution and can be thought of as the active part of a program. It is the instance of a computer program that is being executed by one or many threads. A process is created by the operating system when a program is executed.
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 0-what-is-my-pid
+    
 
-## Process Creation and Termination
+## 1. List your processes
+mandatory
 
-Process creation occurs when a program is executed by the operating system. The operating system creates an address space for the process, assigns resources to the process, and schedules the process for execution. The process is then loaded into memory and execution begins. 
+Write a Bash script that displays a list of currently running processes.
 
-Process termination occurs when the process completes its execution or is terminated by the operating system. When a process terminates, it returns all allocated resources to the operating system and releases its address space.
+Requirements:
+-  Must show all processes, for all users, including those which might not have a TTY
+-  Display in a user-oriented format
+-  Show process hierarchy
 
-## Scheduling and Dispatching
+### Tests
+-  <code>./1-list_your_processes | head -50</code>
 
-Process scheduling is the task of the operating system to determine which process to execute at a given time. The scheduling algorithm determines how access to the CPU is managed among competing processes. Scheduling algorithms can be preemptive or non-preemptive, and scheduling decisions are based on priorities and resource availability. 
+Repo:
 
-Process dispatching is the process of executing a process by the operating system. The dispatching decision is made by the scheduler and the process is transferred from the ready queue to the CPU. The process is then executed until a process switch is requested by the operating system.
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 1-list_your_processes
+    
 
-## Signals
+## 2. Show your Bash PID
+mandatory
 
-Signals are used by the operating system to notify processes of events. Signals can be sent to processes by the operating system, by another process, or even by the user. 
+Using your previous exercise command, write a Bash script that displays lines containing the bash word, thus allowing you to easily get the PID of your Bash process.
 
-When a signal is sent to a process, the process is notified of the signal and can take action based on the signal. The action can be to ignore the signal, to terminate the process, or to take some other action.
+Requirements:
+-  You cannot use pgrep
+-  The third line of your script must be # shellcheck disable=SC2009 (for more info about ignoring shellcheck error here)
 
-## Resource Management
+### Tests
+-  <code>./2-show_your_bash_pid</code>
+ 
+Repo:
 
-Resource management is the task of the operating system to manage the resources of a system. The operating system must manage the resources effectively and efficiently in order to meet the needs of the processes. The resources managed by the operating system include memory, files, I/O devices, processors, and other system resources.
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 2-show_your_bash_pid
+    
 
-## Repo Tasks
+## 3. Show your Bash PID made easy
+mandatory
 
-The following tasks are included in this repo:
+Write a Bash script that displays the PID, along with the process name, of processes whose name contain the word bash.
 
-| Task | Description |
-|------|-------------|
-| 0-what-is-my-pid | Write a Bash script that displays its own PID. |
-| 1-list_your_processes | Write a Bash script that displays a list of currently running processes. |
-| 2-show_your_bash_pid | Using your previous exercise command, write a Bash script that displays lines containing the bash word, thus allowing you to easily get the PID of your Bash process. |
-| 3-show_your_bash_pid_made_easy | Write a Bash script that displays the PID, along with the process name, of processes whose name contain the word bash. |
-| 4-to_infinity_and_beyond | Write a Bash script that displays To infinity and beyond indefinitely. |
-| 5-kill_me_now | We killed our 4-to_infinity_and_beyond process using ctrl+c in the previous task, there is actually another way to do this.  Write a Bash script that kills 4-to_infinity_and_beyond process. |
-| 6-kill_me_now_made_easy | Write a Bash script that kills 4-to_infinity_and_beyond process. |
-| 7-highlander | Write a Bash script that displays:  _"To live, you must kill"_  when the  _4-to_infinity_and_beyond_  process is killed. |
-| 8-beheaded_process | Write a Bash script that kills the process 7-highlander. |
+Requirements:
+-  You cannot use ps
+
+### Tests
+-  <code>./3-show_your_bash_pid_made_easy</code>
+-  <code>./3-show_your_bash_pid_made_easy</code>
+ 
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 3-show_your_bash_pid_made_easy
+    
+
+## 4. To infinity and beyond
+mandatory
+
+Write a Bash script that displays To infinity and beyond indefinitely.
+
+Requirements:
+-  In between each iteration of the loop, add a sleep 2
+
+### Tests
+-  <code>./4-to_infinity_and_beyond</code>
+    -  Note that I ctrl+c (killed) the Bash script in the example.
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 4-to_infinity_and_beyond
+    
+
+## 5. Don't stop me now!
+mandatory
+
+We stopped our 4-to_infinity_and_beyond process using ctrl+c in the previous task, there is actually another way to do this.
+
+Write a Bash script that stops 4-to_infinity_and_beyond process.
+
+Requirements:
+-  You must use kill
+
+# Terminal #0
+## Tests
+-  <code>./4-to_infinity_and_beyond</code>
+
+# Terminal #1
+## Tests
+-  <code>./5-dont_stop_me_now</code>
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 5-dont_stop_me_now
+    
+
+## 6. Stop me if you can
+mandatory
+
+Write a Bash script that stops 4-to_infinity_and_beyond process.
+
+Requirements:
+-  You cannot use kill or killall
+
+# Terminal #0
+### Tests
+-  <code>./4-to_infinity_and_beyond</code>
+
+# Terminal #1
+### Tests
+-  <code>./6-stop_me_if_you_can</code>
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 6-stop_me_if_you_can
+    
+
+## 7. Highlander
+mandatory
+
+Write a Bash script that displays:
+-  To infinity and beyond indefinitely
+-  With a sleep 2 in between each iteration
+-  I am invincible!!! when receiving a SIGTERM signal
+-  Make a copy of your 6-stop_me_if_you_can script, name it 67-stop_me_if_you_can, that kills the 7-highlander process instead of the 4-to_infinity_and_beyond one.
+
+# Terminal #0
+### Tests
+-  <code>./7-highlander</code>
+
+# Terminal #1
+### Tests
+-  <code>./67-stop_me_if_you_can</code>
+-  <code>./67-stop_me_if_you_can</code>
+-  <code>./67-stop_me_if_you_can</code>
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 7-highlander
+    
+
+## 8. Beheaded process
+mandatory
+
+Write a Bash script that kills the process 7-highlander.
+
+# Terminal #0
+## Tests
+<code>./7-highlander</code>
+ 
+# Terminal #1
+## Tests
+-  <code>./8-beheaded_process</code>
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 8-beheaded_process
+    
+
+## 9. Process and PID file
+#advanced
+
+Write a Bash script that:
+-  Creates the file /var/run/myscript.pid containing its PID
+-  Displays To infinity and beyond indefinitely
+-  Displays I hate the kill command when receiving a SIGTERM signal
+-  Displays Y U no love me?! when receiving a SIGINT signal
+-  Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
+
+## Tests
+-  <code>./100-process_and_pid_file</code>
+-  Executing the <code>100-process_and_pid_file</code> script and killing it with <code>ctrl+c</code>.
+
+# Terminal #0
+## Tests
+-  <code>./100-process_and_pid_file</code>
+ 
+# Terminal #1
+## Tests
+-  <code>sudo pkill -f 100-process_and_pid_file</code>
+-  Starting 100-process_and_pid_file in the terminal #0 and then killing it in the terminal #1.
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 100-process_and_pid_file
+    
+
+## 10. Manage my process
+#advanced
+
+Read:
+-  & <link>https://bashitout.com/2013/05/18/Ampersands-on-the-command-line.html</link>
+-  init.d <link>https://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/</link>
+-  Daemon <link>https://en.wikipedia.org/wiki/Daemon_%28computing%29</link>
+-  Positional parameters <link>https://www.gnu.org/software/bash/manual/html_node/Positional-Parameters.html</link>
+
+-  <strong>man:</strong> sudo
+
+Programs that are detached from the terminal and running in the background are called daemons or processes, need to be managed. The general minimum set of instructions is: start, restart and stop. The most popular way of doing so on Unix system is to use the init scripts.
+
+Write a manage_my_process Bash script that:
+-  Indefinitely writes I am alive! to the file /tmp/my_process
+-  In between every I am alive! message, the program should pause for 2 seconds
+-  Write Bash (init) script 101-manage_my_process that manages manage_my_process. (both files need to be pushed to git)
+
+Requirements:
+-  When passing the argument start:
+-  Starts manage_my_process
+-  Creates a file containing its PID in <code>/var/run/my_process.pid</code>
+-  Displays manage_my_process started
+-  When passing the argument stop:
+-  Stops manage_my_process
+-  Deletes the file <code>/var/run/my_process.pid</code>
+-  Displays manage_my_process stopped
+-  When passing the argument restart
+-  Stops manage_my_process
+-  Deletes the file <code>/var/run/my_process.pid</code>
+-  Starts manage_my_process
+-  Creates a file containing its PID in <code>/var/run/my_process.pid</code>
+-  Displays manage_my_process restarted
+-  Displays Usage: manage_my_process {start|stop|restart} if any other argument or no argument is passed
+-  Note that this init script is far from being perfect (but good enough for the sake of manipulating process and PID file), for example we do not handle the case where we check if a process is already running when doing <code>./101-manage_my_process</code> start, in our case it will simply create a new process instead of saying that it is already started.
+
+### Tests
+-  <code>./101-manage_my_process</code>
+-  <code>./101-manage_my_process start</code>
+-  <code>tail -f -n0 /tmp/my_process</code>
+-  <code>sudo ./101-manage_my_process stop</code>
+-  <code>cat /var/run/my_process.pid</code>
+- <code>tail -f -n0 /tmp/my_process</code>
+ 
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 101-manage_my_process, manage_my_process
+    
+
+## 11. Zombie
+#advanced
+Read what a zombie process is <link>https://zombieprocess.wordpress.com/what-is-a-zombie-process/</link>.
+
+Write a C program that creates 5 zombie processes.
+
+Requirements:
+-  For every zombie process created, it displays Zombie process created, PID: ZOMBIE_PID
+-  Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+-  When your code is done creating the parent process and the zombies, use the function bellow
+    int infinite_while(void)
+    {
+        while (1)
+        {
+            sleep(1);
+        }
+        return (0);
+    }
+Example:
+
+# Terminal #0
+-  <code>gcc 102-zombie.c -o zombie</code>
+-  <code>./zombie</code>
+
+# Terminal #1
+-  <code>ps aux | grep -e 'Z+.*<defunct>'</code>
+ 
+In Terminal #0, I start by compiling 102-zombie.c and executing zombie which creates 5 zombie processes. In Terminal #1, I display the list of processes and look for lines containing <code>Z+.*<defunct></code> which catches zombie process.
+
+Repo:
+
+    GitHub repository: alx-system_engineering-devops
+    Directory: 0x05-processes_and_signals
+    File: 102-zombie.c
+
